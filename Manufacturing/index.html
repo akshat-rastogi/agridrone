@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🚁 Agri-Drone AI Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>🚀 Agri-Drone AI Dashboard</h1>
+    <p>Smart Farming • Drone Intelligence • Real-Time Control</p>
+  </header>
+
+  <main class="dashboard-grid">
+    <section class="card neon telemetry">
+      <h2>🌡️ Telemetry</h2>
+      <p>Temp: <span id="temp">--</span> °C</p>
+      <p>Moisture: <span id="moisture">--</span> %</p>
+      <p>Humidity: <span id="humidity">--</span> %</p>
+    </section>
+
+    <section class="card neon diagnosis">
+      <h2>🧠 AI Crop Diagnosis</h2>
+      <div id="image-container"></div>
+    </section>
+
+    <section class="card neon print">
+      <h2>🖨️ Live Print Queue</h2>
+      <ul id="print-tasks"></ul>
+    </section>
+
+    <section class="card neon catalog">
+      <h2>📦 Drone Parts Catalog</h2>
+      <table>
+        <thead>
+          <tr><th>Part</th><th>Version</th><th>Links</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Drone Arm</td>
+            <td>v2.1</td>
+            <td><a href="assets/stl/drone-arm.stl">STL</a> | <a href="assets/specs/drone-arm.pdf">Spec</a></td>
+          </tr>
+          <tr>
+            <td>Sensor Mount</td>
+            <td>v1.3</td>
+            <td><a href="assets/stl/sensor-mount.stl">STL</a> | <a href="assets/specs/sensor-mount.pdf">Spec</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card neon control">
+      <h2>🎙️ Voice/Text Control Console</h2>
+      <input type="text" id="commandInput" placeholder="Say or type a command..." />
+      <button onclick="handleCommand()">🚀 GO</button>
+      <button onclick="startListening()">🎤 Speak</button>
+
+      <p id="commandOutput"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>🌾 Agri-Drone by FutureFarm AI © 2025</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Agri-Drone Factory Assistant</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4fff4;
+      padding: 40px;
+    }
+    h2 {
+      color: #2e7d32;
+    }
+    input, button {
+      font-size: 16px;
+      padding: 10px;
+    }
+    #log {
+      margin-top: 20px;
+      padding: 10px;
+      background: #ffffff;
+      border: 1px solid #ccc;
+      min-height: 150px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <h2>🧠 Agri-Drone Factory Assistant (Mock)</h2>
+  <input id="input" type="text" placeholder="Enter command..." size="50" />
+  <button onclick="runAssistant()">Send</button>
+
+  <div id="log"></div>
+
+  <script>
+    function runAssistant() {
+      const input = document.getElementById('input').value.toLowerCase();
+      const log = document.getElementById('log');
+      let response = '';
+
+      if (input.includes("start") && input.includes("scan")) {
+        response = "✅ Starting drone scan on assigned field.";
+      } else if (input.includes("pause") || input.includes("stop")) {
+        response = "🛑 Operation paused. Awaiting next command.";
+      } else if (input.includes("print queue")) {
+        response = "🖨️ Print Queue: \n• Part A – Printed\n• Part B – Printing\n• Part C – Queued";
+      } else if (input.includes("status")) {
+        response = "📡 All systems nominal. Battery at 89%. Weather: clear.";
+      } else {
+        response = "🤖 I didn't recognize that command. Try 'start scan' or 'show print queue'.";
+      }
+
+      log.innerText += `👤 You: ${input}\n🤖 Assistant: ${response}\n\n`;
+      document.getElementById('input').value = '';
+    }
+  </script>
+</body>
+</html>

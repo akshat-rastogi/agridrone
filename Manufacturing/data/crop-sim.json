@@ -1,0 +1,17 @@
+[
+  {
+    "plot": "A1",
+    "status": "Healthy",
+    "image": "healthy.jpg"
+  },
+  {
+    "plot": "B2",
+    "status": "Dryness Detected",
+    "image": "dry.jpg"
+  },
+  {
+    "plot": "C3",
+    "status": "Blight Detected",
+    "image": "blight.jpg"
+  }
+]
