@@ -13,23 +13,23 @@ const HR_FAQ = [
   },
   {
     q: /leave|vacation|pto|holiday/i,
-    a: "Full-time employees get 20 paid days off per year, plus national holidays. Sick days are flexible. See Policies for details.",
+    a: "Full-time employees at Agri-Drone get 20 paid days off per year, plus national holidays. Sick days are flexible. See Policies for details.",
   },
   {
     q: /benefit|insurance|wellness/i,
-    a: "We offer comprehensive health insurance, wellness allowance, free therapy sessions, and more. See the Benefits section for details.",
+    a: "Agri-Drone offers comprehensive health insurance, wellness allowance, free therapy sessions, and more. See the Benefits section for details.",
   },
   {
     q: /policy|remote|work from home/i,
-    a: "We are remote-first with flexible hours and an internet stipend. See the Policies section for all details.",
+    a: "Agri-Drone is remote-first with flexible hours and an internet stipend. See the Policies section for all details.",
   },
   {
     q: /contact|help|support|hr/i,
-    a: "You can reach HR at hr@yourcompany.com or use the Feedback Survey in the portal.",
+    a: "You can reach Agri-Drone HR at hr@agridrone.com or use the Feedback Survey in the portal.",
   },
   {
     q: /org chart|team|structure/i,
-    a: "See the Org Chart page for our team structure and reporting lines.",
+    a: "See the Org Chart page for Agri-Drone's team structure and reporting lines.",
   },
   {
     q: /feedback|suggestion/i,
@@ -56,7 +56,7 @@ function botGetAnswer(input) {
   for (const pair of HR_FAQ) {
     if (pair.q.test(input)) return pair.a;
   }
-  return "I'm here to help! Please check the portal sections or ask HR for more info.";
+  return "I'm here to help! Please check the portal sections or ask Agri-Drone HR for more info.";
 }
 
 hrBotOpen.onclick = () => {
@@ -65,7 +65,7 @@ hrBotOpen.onclick = () => {
   hrBotInput.focus();
   if (!hrBotMessages.hasChildNodes()) {
     botAddMessage(
-      "Hi! I'm your HR Bot. Ask me about onboarding, leave, benefits, or policies."
+      "Hi! I'm your Agri-Drone HR Bot. Ask me about onboarding, leave, benefits, or policies."
     );
   }
 };
