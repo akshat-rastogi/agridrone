@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HR Portal Demo - Agri-Drone</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1 style="margin: 0">HR Portal</h1>
+      <nav>
+        <a href="#home" onclick="showSection('home')">Home</a>
+        <a href="#onboarding" onclick="showSection('onboarding')">Onboarding</a>
+        <a href="#benefits" onclick="showSection('benefits')">Benefits</a>
+        <a href="#policies" onclick="showSection('policies')">Policies</a>
+        <a href="#culture" onclick="showSection('culture')">Culture & Values</a>
+      </nav>
+    </header>
+    <main>
+      <section id="home" class="section">
+        <div class="welcome-hero">
+          <div class="welcome-title-row">
+            <span class="welcome-icon">🌾</span>
+            <h2 class="welcome-title">Welcome to AgriDroneX</h2>
+          </div>
+          <div class="welcome-subtitle">Empowering Farmers from the Sky</div>
+          <div class="welcome-tagline">
+            ✨ Revolutionizing Agriculture with Smart Drones
+          </div>
+        </div>
+        <p class="welcome-intro">
+          Welcome to AgriDroneX, where technology meets tradition to shape the
+          future of farming.<br />
+          We design intelligent, easy-to-use agricultural drones that help
+          farmers monitor crops, spray fertilizers, detect diseases, and
+          maximize yields — all with the power of flight.
+        </p>
+        <div class="welcome-mission">
+          <strong>Our mission is simple:</strong><br />Make farming smarter,
+          faster, and more sustainable.
+        </div>
+        <h3 class="welcome-section-title" style="margin-top: 2.2rem">
+          🚀 What We Offer
+        </h3>
+        <div class="welcome-features">
+          <div class="welcome-feature-card">
+            <strong>Precision Farming</strong><br />
+            <span
+              >Get real-time insights into crop health, soil moisture, and
+              more.</span
+            >
+          </div>
+          <div class="welcome-feature-card">
+            <strong>Automated Crop Spraying</strong><br />
+            <span
+              >Save time and reduce chemical waste with accurate spraying.</span
+            >
+          </div>
+          <div class="welcome-feature-card">
+            <strong>Aerial Mapping & Scouting</strong><br />
+            <span
+              >Cover large fields in minutes and identify issues early.</span
+            >
+          </div>
+          <div class="welcome-feature-card">
+            <strong>Smart Analytics</strong><br />
+            <span
+              >Actionable reports to help you make better farming
+              decisions.</span
+            >
+          </div>
+        </div>
+        <h3 class="welcome-section-title" style="margin-top: 2.2rem">
+          🌱 Why Choose Us?
+        </h3>
+        <ul class="welcome-benefits">
+          <li>✅ Easy-to-use Interface</li>
+          <li>✅ Built for Indian farmlands & terrain</li>
+          <li>✅ Reduces labor costs and effort</li>
+          <li>✅ Environmentally friendly</li>
+          <li>✅ Backed by expert support & training</li>
+        </ul>
+      </section>
+      <section id="onboarding" class="section" style="display: none">
+        <h2>Onboarding</h2>
+        <div class="benefit-cards">
+          <div class="benefit-card">
+            <a href="welcome-guide.html" target="_blank"
+              ><strong>Welcome Guide</strong></a
+            >
+            <div class="onboard-desc">
+              Start here for an overview of Agri-Drone, our culture, and your
+              first steps.
+            </div>
+          </div>
+          <div class="benefit-card">
+            <a href="one-page-onboarding-checklist.html" target="_blank"
+              ><strong>Onboarding Checklist</strong></a
+            >
+            <div class="onboard-desc">
+              A step-by-step checklist to guide you through your first days.
+            </div>
+          </div>
+          <div class="benefit-card">
+            <a href="#policies" onclick="showSection('policies')"
+              ><strong>Policies</strong></a
+            >
+            <div class="onboard-desc">
+              Review our PTO, remote work, and company values.
+            </div>
+          </div>
+          <div class="benefit-card">
+            <a href="org-chart.html" target="_blank"
+              ><strong>Org Chart</strong></a
+            >
+            <div class="onboard-desc">
+              See our team structure and reporting lines.
+            </div>
+          </div>
+          <div class="benefit-card">
+            <a href="feedback-survey.html" target="_blank"
+              ><strong>Feedback Survey</strong></a
+            >
+            <div class="onboard-desc">
+              Share your onboarding experience and help us improve.
+            </div>
+          </div>
+          <div class="benefit-card">
+            <strong>Meet Your Team</strong>
+            <div class="onboard-desc">
+              Connect with your colleagues and get to know your support network.
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="benefits" class="section" style="display: none">
+        <h2>Benefits Overview</h2>
+        <p>
+          At Agri-Drone, we believe in supporting the whole person —
+          professionally and personally. Here's what you can expect:
+        </p>
+        <div class="benefit-cards">
+          <div class="benefit-card">
+            <h3>🩺 Health & Wellness</h3>
+            <ul>
+              <li>
+                Comprehensive health insurance (medical + mental wellness
+                coverage)
+              </li>
+              <li>
+                Annual wellness allowance (₹10,000 for gym, therapy, or
+                mindfulness apps)
+              </li>
+              <li>Free online therapy sessions (up to 6/year)</li>
+            </ul>
+          </div>
+          <div class="benefit-card">
+            <h3>🏖️ Work-Life Balance</h3>
+            <ul>
+              <li>Flexible hours and remote-first setup</li>
+              <li>20 days paid vacation + national holidays</li>
+              <li>No-meeting Fridays for deep work and personal planning</li>
+            </ul>
+          </div>
+          <div class="benefit-card">
+            <h3>📚 Professional Development</h3>
+            <ul>
+              <li>
+                ₹25,000 annual learning budget (courses, certifications, books)
+              </li>
+              <li>Quarterly learning days (company-wide)</li>
+              <li>Peer-to-peer mentorship across departments</li>
+            </ul>
+          </div>
+          <div class="benefit-card">
+            <h3>💰 Financial Perks</h3>
+            <ul>
+              <li>Annual performance bonus</li>
+              <li>ESOPs for eligible roles</li>
+              <li>Internet and remote work stipend (₹2000/month)</li>
+            </ul>
+          </div>
+          <div class="benefit-card">
+            <h3>🤝 Connection & Recognition</h3>
+            <ul>
+              <li>Monthly team-building virtual events</li>
+              <li>Shoutouts and peer-recognition awards</li>
+              <li>Optional co-working space reimbursement (₹5000/month)</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section id="policies" class="section" style="display: none">
+        <h2>Company Policies</h2>
+        <h3>PTO (Paid Time Off) Policy</h3>
+        <ul>
+          <li>
+            All full-time employees receive
+            <strong>20 paid days off</strong> per year.
+          </li>
+          <li>
+            Sick days are flexible—take them as needed, no doctor's note
+            required.
+          </li>
+          <li>National holidays are observed based on your location.</li>
+          <li>
+            No approval bottlenecks: simply block your time on the shared
+            calendar and notify your manager.
+          </li>
+          <li>
+            We encourage everyone to take at least 5 consecutive days off
+            annually to recharge.
+          </li>
+        </ul>
+        <h3>Company Values (Employee Value Proposition)</h3>
+        <blockquote>
+          At Agri-Drone, we build the future by empowering each individual to
+          experiment boldly, learn constantly, and balance ambition with
+          well-being.
+        </blockquote>
+        <ul>
+          <li>
+            <strong>Autonomy with Accountability:</strong> Own your work, be
+            transparent.
+          </li>
+          <li>
+            <strong>Bias for Action:</strong> Speed wins, but so does feedback.
+          </li>
+          <li>
+            <strong>Human-Centric AI:</strong> We solve for people, not just
+            metrics.
+          </li>
+          <li>
+            <strong>Radical Clarity:</strong> Simplicity in communication =
+            speed in execution.
+          </li>
+          <li>
+            <strong>Wellness Wins:</strong> Burnout is not a badge of honor.
+          </li>
+        </ul>
+        <h3>Remote Work Policy</h3>
+        <ul>
+          <li>
+            We are fully remote by default, with optional monthly team meetups.
+          </li>
+          <li>Core hours: 11AM–4PM IST for synchronous collaboration.</li>
+          <li>Async-first mindset: meetings only when necessary.</li>
+          <li>Internet stipend provided (₹2000/month).</li>
+          <li>Use Slack status to communicate your availability.</li>
+        </ul>
+      </section>
+      <section id="culture" class="section" style="display: none">
+        <h2>Our Culture</h2>
+        <p>
+          At Agri Drone, culture isn't just what we do — it's who we are.<br />
+          We believe in building more than products or services. We build trust,
+          creativity, and a shared vision for growth. Our culture drives
+          collaboration, innovation, and purpose in everything we do.
+        </p>
+        <h3 style="margin-top: 2rem">💡 Our Core Values</h3>
+        <div class="values-cards">
+          <div class="value-card">
+            <span class="value-icon">🔹</span><strong>Integrity</strong
+            ><br /><span class="value-desc"
+              >We do the right thing — even when no one is watching. Honesty and
+              transparency guide all our actions.</span
+            >
+          </div>
+          <div class="value-card">
+            <span class="value-icon">🔹</span><strong>Innovation</strong
+            ><br /><span class="value-desc"
+              >We challenge the status quo and embrace fresh ideas. Every
+              problem is an opportunity to create something better.</span
+            >
+          </div>
+          <div class="value-card">
+            <span class="value-icon">🔹</span><strong>Collaboration</strong
+            ><br /><span class="value-desc"
+              >We grow together. Respect and teamwork are at the heart of our
+              daily work.</span
+            >
+          </div>
+          <div class="value-card">
+            <span class="value-icon">🔹</span><strong>Ownership</strong
+            ><br /><span class="value-desc"
+              >Everyone here is a leader. We take responsibility, show
+              initiative, and drive outcomes.</span
+            >
+          </div>
+          <div class="value-card">
+            <span class="value-icon">🔹</span><strong>Customer Obsession</strong
+            ><br /><span class="value-desc"
+              >We succeed when our customers do. Their satisfaction shapes our
+              success.</span
+            >
+          </div>
+          <div class="value-card">
+            <span class="value-icon">🔹</span
+            ><strong>Diversity & Inclusion</strong><br /><span
+              class="value-desc"
+              >We celebrate different perspectives. Every voice counts, and
+              every background adds strength.</span
+            >
+          </div>
+        </div>
+        <h3 style="margin-top: 2.2rem">🌿 How We Work</h3>
+        <ul class="how-we-work-list">
+          <li>We communicate openly and encourage healthy feedback</li>
+          <li>We prioritize balance — work hard, rest well</li>
+          <li>We empower individuals to lead from any seat</li>
+          <li>
+            We learn constantly — through experiments, mistakes, and shared wins
+          </li>
+          <li>We support each other and lift as we climb</li>
+        </ul>
+      </section>
+    </main>
+    <div id="hr-bot-widget" class="hr-bot-widget" style="display: none">
+      <div class="hr-bot-header">
+        🤖 HR Bot <span id="hr-bot-close" class="hr-bot-close">&times;</span>
+      </div>
+      <div class="hr-bot-messages" id="hr-bot-messages"></div>
+      <form id="hr-bot-form" class="hr-bot-form">
+        <input
+          type="text"
+          id="hr-bot-input"
+          placeholder="Ask HR..."
+          autocomplete="off"
+        />
+        <button type="submit">Send</button>
+      </form>
+    </div>
+    <button id="hr-bot-open" class="hr-bot-open">💬 HR Bot</button>
+    <script src="script.js"></script>
+    <script src="hr-bot.js"></script>
+  </body>
+</html>

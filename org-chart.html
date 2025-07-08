@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Org Chart - Agri-Drone</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .org-chart {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 2rem 0;
+      }
+      .org-level {
+        display: flex;
+        justify-content: center;
+        margin: 1.5rem 0 0.5rem 0;
+        position: relative;
+      }
+      .org-box {
+        background: #e3f2fd;
+        border: 2px solid #1976d2;
+        border-radius: 8px;
+        padding: 1rem 1.5rem;
+        margin: 0 1rem;
+        min-width: 140px;
+        text-align: center;
+        font-weight: bold;
+        color: #1976d2;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+        position: relative;
+      }
+      /* Connecting lines */
+      .org-level:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        height: 24px;
+        border-bottom: 2px solid #1976d2;
+        z-index: 0;
+      }
+      .org-children {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-top: 0.5rem;
+      }
+      .org-box.small {
+        font-size: 0.98em;
+        padding: 0.7rem 1rem;
+        min-width: 110px;
+        background: #fffde7;
+        border-color: #fbc02d;
+        color: #fbc02d;
+      }
+      @media (max-width: 900px) {
+        .org-level,
+        .org-children {
+          flex-wrap: wrap;
+        }
+        .org-box {
+          margin: 0.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Agri-Drone Org Chart / Team Structure</h1>
+      <div class="org-chart">
+        <!-- Level 1 -->
+        <div class="org-level">
+          <div class="org-box">
+            CEO<br /><span style="font-weight: normal">Samita Rao</span>
+          </div>
+        </div>
+        <!-- Level 2 -->
+        <div class="org-level">
+          <div class="org-box">
+            CTO<br /><span style="font-weight: normal">Priya Nair</span>
+          </div>
+          <div class="org-box">
+            COO<br /><span style="font-weight: normal">Rahul Mehta</span>
+          </div>
+          <div class="org-box">
+            Head of People<br /><span style="font-weight: normal"
+              >Anjali Singh</span
+            >
+          </div>
+        </div>
+        <!-- Level 3 -->
+        <div class="org-children">
+          <div>
+            <div class="org-box small">
+              Lead Dev<br /><span style="font-weight: normal">Alice</span>
+            </div>
+            <div class="org-box small">
+              QA Lead<br /><span style="font-weight: normal">Bob</span>
+            </div>
+          </div>
+          <div>
+            <div class="org-box small">
+              Ops Lead<br /><span style="font-weight: normal">Carol</span>
+            </div>
+            <div class="org-box small">
+              Finance<br /><span style="font-weight: normal">David</span>
+            </div>
+          </div>
+          <div>
+            <div class="org-box small">
+              Recruiter<br /><span style="font-weight: normal">Esha</span>
+            </div>
+            <div class="org-box small">
+              HRBP<br /><span style="font-weight: normal">Farhan</span>
+            </div>
+            <div class="org-box small">
+              Culture<br /><span style="font-weight: normal">Gina</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p><a href="index.html">&larr; Back to HR Portal</a></p>
+    </main>
+  </body>
+</html>
