@@ -1,0 +1,10 @@
+{"timestamp":"2025-07-08T13:16:13.794Z","diagnosis":"Water Stress","advice":"Increase irrigation in the affected zone.","confidence":82}
+{"timestamp":"2025-07-08T13:16:19.460Z","diagnosis":"Water Stress","advice":"Increase irrigation in the affected zone.","confidence":81}
+{"timestamp":"2025-07-08T13:16:22.925Z","diagnosis":"Nutrient Deficiency","advice":"Apply NPK fertilizer as per soil test recommendations.","confidence":86}
+{"timestamp":"2025-07-08T13:19:56.733Z","diagnosis":"Healthy","advice":"No issues detected. Continue regular monitoring.","confidence":95}
+{"timestamp":"2025-07-08T13:19:57.880Z","diagnosis":"Nutrient Deficiency","advice":"Apply NPK fertilizer as per soil test recommendations.","confidence":94}
+{"timestamp":"2025-07-08T13:19:58.549Z","diagnosis":"Nutrient Deficiency","advice":"Apply NPK fertilizer as per soil test recommendations.","confidence":86}
+{"timestamp":"2025-07-08T13:19:59.091Z","diagnosis":"Water Stress","advice":"Increase irrigation in the affected zone.","confidence":82}
+{"timestamp":"2025-07-08T13:50:14.407Z","diagnosis":"Nutrient Deficiency","advice":"Apply NPK fertilizer as per soil test recommendations.","confidence":88}
+{"timestamp":"2025-07-08T13:50:15.973Z","diagnosis":"Healthy","advice":"No issues detected. Continue regular monitoring.","confidence":89}
+{"timestamp":"2025-07-08T13:50:16.492Z","diagnosis":"Pest Infestation","advice":"Apply neem-based pesticide and monitor affected area.","confidence":81}

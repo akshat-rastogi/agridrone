@@ -1,0 +1,1449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agridrone – Smarter Farming Starts Here</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #68B984;
+      --blue: #316B83;
+      --light-bg: #fff;
+      --dark-text: #222;
+      --gray: #f5f7fa;
+      --radius: 1.2rem;
+      --shadow: 0 4px 24px rgba(49, 107, 131, 0.08);
+      --transition: 0.2s cubic-bezier(.4,0,.2,1);
+    }
+    html {
+      box-sizing: border-box;
+      font-size: 18px;
+    }
+    *, *:before, *:after {
+      box-sizing: inherit;
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', 'Inter', Arial, sans-serif;
+      background: var(--light-bg);
+      color: var(--dark-text);
+      line-height: 1.6;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    header.hero {
+      /* Add a farming background image with a gradient overlay for readability */
+      background: linear-gradient(120deg, rgba(104,185,132,0.82) 0%, rgba(49,107,131,0.82) 100%),
+        url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
+      color: #fff;
+      padding: 4rem 0 3rem 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      min-height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      animation: fadeInHero 1.2s ease;
+    }
+    @keyframes fadeInHero {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: none; }
+    }
+    .hero h1 {
+      font-size: 2.7rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: -1px;
+    }
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 2.2rem;
+      font-weight: 400;
+    }
+    .cta-btn {
+      background: #fff;
+      color: var(--blue);
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 0.9rem 2.2rem;
+      border: none;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: background var(--transition), color var(--transition), transform var(--transition);
+      outline: none;
+      position: relative;
+      z-index: 1;
+    }
+    .cta-btn:hover, .cta-btn:focus {
+      background: var(--blue);
+      color: #fff;
+      transform: translateY(-2px) scale(1.04);
+    }
+    section {
+      padding: 3.5rem 0 2.5rem 0;
+    }
+    .problem-solution {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      justify-content: center;
+      align-items: flex-start;
+      background: var(--gray);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 2.5rem;
+      padding: 2.5rem 1.5rem;
+    }
+    .problem, .solution {
+      flex: 1 1 260px;
+      min-width: 220px;
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 1.5rem 1.2rem;
+      box-shadow: 0 2px 10px rgba(49,107,131,0.06);
+    }
+    .problem h3, .solution h3 {
+      color: var(--blue);
+      margin-top: 0;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    .how-it-works {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .steps {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2.2rem;
+      margin-top: 2rem;
+    }
+    .step {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 10px rgba(49,107,131,0.06);
+      padding: 1.5rem 1.2rem;
+      min-width: 180px;
+      max-width: 220px;
+      flex: 1 1 180px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform var(--transition);
+    }
+    .step:hover {
+      transform: translateY(-4px) scale(1.03);
+    }
+    .step-icon {
+      font-size: 2.5rem;
+      color: var(--green);
+      margin-bottom: 1rem;
+    }
+    .step-title {
+      font-weight: 600;
+      color: var(--blue);
+      margin-bottom: 0.5rem;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      margin-top: 2.2rem;
+    }
+    .feature {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 10px rgba(49,107,131,0.06);
+      padding: 1.5rem 1.2rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+    .feature:hover {
+      box-shadow: 0 6px 24px rgba(49,107,131,0.13);
+      transform: translateY(-2px) scale(1.02);
+    }
+    .feature-icon {
+      font-size: 2rem;
+      color: var(--green);
+      margin-top: 0.2rem;
+    }
+    .feature-title {
+      font-weight: 600;
+      color: var(--blue);
+      margin-bottom: 0.2rem;
+    }
+    .about {
+      background: var(--gray);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      margin-top: 2.5rem;
+    }
+    .about h2 {
+      color: var(--blue);
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .about p {
+      margin: 0.5rem 0;
+      font-size: 1.1rem;
+    }
+    .about .vision {
+      font-style: italic;
+      color: var(--green);
+      margin-top: 1.2rem;
+    }
+    footer {
+      background: var(--blue);
+      color: #fff;
+      padding: 2.2rem 0 1.2rem 0;
+      text-align: center;
+      margin-top: 3rem;
+    }
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .footer-social {
+      display: flex;
+      gap: 1.2rem;
+      font-size: 1.5rem;
+    }
+    .footer-social a {
+      color: #fff;
+      opacity: 0.85;
+      transition: opacity var(--transition), transform var(--transition);
+    }
+    .footer-social a:hover {
+      opacity: 1;
+      transform: scale(1.15);
+    }
+    .footer-contact {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .footer-newsletter {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .footer-newsletter input[type="email"] {
+      padding: 0.6rem 1rem;
+      border-radius: 2rem;
+      border: none;
+      outline: none;
+      font-size: 1rem;
+      margin-right: 0.5rem;
+      min-width: 180px;
+    }
+    .footer-newsletter button {
+      background: var(--green);
+      color: #fff;
+      border: none;
+      border-radius: 2rem;
+      padding: 0.6rem 1.3rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background var(--transition), transform var(--transition);
+    }
+    .footer-newsletter button:hover {
+      background: #fff;
+      color: var(--green);
+      transform: scale(1.05);
+    }
+    /* Drone Status Section */
+    .drone-status {
+      background: var(--gray);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-top: -2.5rem;
+      margin-bottom: 2.5rem;
+      padding: 2.5rem 1.5rem 2rem 1.5rem;
+      position: relative;
+      z-index: 2;
+    }
+    .drone-status-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 2rem;
+      justify-items: center;
+      align-items: center;
+    }
+    .drone-status-item {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 10px rgba(49,107,131,0.06);
+      padding: 1.2rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 150px;
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+    .drone-status-item:hover {
+      box-shadow: 0 6px 24px rgba(49,107,131,0.13);
+      transform: translateY(-2px) scale(1.03);
+    }
+    .drone-status-icon {
+      font-size: 2.2rem;
+      margin-bottom: 0.7rem;
+    }
+    .drone-status-label {
+      font-size: 1.05rem;
+      color: var(--blue);
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+    .drone-status-value {
+      font-size: 1.1rem;
+      margin-bottom: 0.1rem;
+    }
+    /* Field Overview Section */
+    .field-overview {
+      background: var(--gray);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 2.5rem;
+      padding: 2.5rem 1.5rem 2rem 1.5rem;
+      position: relative;
+      z-index: 2;
+    }
+    .field-overview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      justify-items: center;
+      align-items: stretch;
+    }
+    .field-card {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 10px rgba(49,107,131,0.06);
+      padding: 1.5rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 180px;
+      transition: box-shadow var(--transition), transform var(--transition);
+      text-align: center;
+    }
+    .field-card:hover {
+      box-shadow: 0 6px 24px rgba(49,107,131,0.13);
+      transform: translateY(-2px) scale(1.03);
+    }
+    .field-card-icon {
+      font-size: 2.2rem;
+      margin-bottom: 0.7rem;
+    }
+    .field-card-title {
+      font-size: 1.1rem;
+      color: var(--blue);
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+    .field-card-desc {
+      font-size: 1rem;
+      color: #444;
+    }
+    /* Modal Styles */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(49,107,131,0.18);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .modal-content {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: 0 8px 32px rgba(49,107,131,0.18);
+      padding: 2.2rem 1.5rem 1.5rem 1.5rem;
+      min-width: 320px;
+      max-width: 95vw;
+      width: 100%;
+      position: relative;
+      animation: fadeInHero 0.4s;
+    }
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1.2rem;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: var(--blue);
+      cursor: pointer;
+      z-index: 10;
+      transition: color 0.2s;
+    }
+    .modal-close:hover {
+      color: var(--green);
+    }
+    .modal-field {
+      margin-bottom: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .modal-field label {
+      font-size: 1rem;
+      color: var(--blue);
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+    }
+    .modal-field input {
+      width: 100%;
+      padding: 0.7rem 1rem;
+      border-radius: 2rem;
+      border: 1px solid #dbe9f6;
+      font-size: 1rem;
+      outline: none;
+      margin-bottom: 0.1rem;
+      transition: border 0.2s;
+    }
+    .modal-field input:focus {
+      border: 1.5px solid var(--blue);
+    }
+    .modal-field textarea {
+      width: 100%;
+      font-size: 1rem;
+      border: 1px solid #dbe9f6;
+      outline: none;
+      margin-bottom: 0.1rem;
+      transition: border 0.2s;
+    }
+    .modal-field textarea:focus {
+      border: 1.5px solid var(--blue);
+    }
+    .star-selected {
+      color: gold;
+      text-shadow: 0 1px 2px #bfa70044;
+    }
+    .feedback-card {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 10px rgba(49,107,131,0.06);
+      padding: 1.2rem 1rem;
+      margin-bottom: 1.2rem;
+      text-align: left;
+      position: relative;
+    }
+    .feedback-stars {
+      font-size: 1.3rem;
+      color: gold;
+      margin-bottom: 0.3rem;
+    }
+    .feedback-name {
+      font-weight: 600;
+      color: var(--blue);
+    }
+    .feedback-date {
+      font-size: 0.95rem;
+      color: #888;
+      margin-left: 0.7rem;
+    }
+    .feedback-message {
+      margin: 0.5rem 0 0.2rem 0;
+    }
+    @media (max-width: 900px) {
+      .container, .footer-content {
+        max-width: 98vw;
+        padding: 0 0.7rem;
+      }
+      .problem-solution, .about {
+        padding: 1.5rem 0.5rem;
+      }
+      .features-grid {
+        gap: 1.2rem;
+      }
+    }
+    @media (max-width: 700px) {
+      .problem-solution, .footer-content {
+        flex-direction: column;
+        gap: 1.2rem;
+        align-items: stretch;
+      }
+      .steps {
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      .about {
+        padding: 1.2rem 0.3rem;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+      .drone-status {
+        padding: 1.2rem 0.3rem 1rem 0.3rem;
+        margin-top: 0;
+      }
+      .drone-status-grid {
+        gap: 1rem;
+      }
+      .field-overview {
+        padding: 1.2rem 0.3rem 1rem 0.3rem;
+      }
+      .field-overview-grid {
+        gap: 1rem;
+      }
+      @media (max-width: 600px) {
+        .modal-content {
+          min-width: 0;
+          padding: 1.2rem 0.5rem 1rem 0.5rem;
+        }
+      }
+    }
+    .drone-images-section .drone-images-grid {
+      margin-bottom: 2rem;
+    }
+    .drone-image-card {
+      background: #fff;
+      border-radius: 1.2rem;
+      box-shadow: 0 2px 10px rgba(49,107,131,0.08);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .drone-image-card:hover {
+      box-shadow: 0 6px 24px rgba(49,107,131,0.13);
+      transform: translateY(-2px) scale(1.02);
+    }
+    #page-alert {
+      background: #fffbe6;
+      color: #b26a00;
+      border: 1.5px solid #ffe58f;
+      border-radius: 1.2rem;
+      box-shadow: 0 2px 10px rgba(255,215,0,0.08);
+      padding: 1.1rem 2.2rem 1.1rem 1.5rem;
+      margin: 1.2rem auto 0 auto;
+      max-width: 700px;
+      font-size: 1.08rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 100;
+      position: relative;
+      animation: fadeInHero 0.7s;
+    }
+    #page-alert button {
+      background: none;
+      border: none;
+      color: #b26a00;
+      font-size: 1.3rem;
+      cursor: pointer;
+      margin-left: 1.2rem;
+      padding: 0;
+      border-radius: 50%;
+      transition: background 0.2s;
+    }
+    #page-alert button:hover {
+      background: #ffe58f;
+    }
+    body[data-theme="dark"] {
+      --light-bg: #181c1f;
+      --dark-text: #f5f7fa;
+      --gray: #23272b;
+      --blue: #68B984;
+      --green: #316B83;
+    }
+    body[data-theme="dark"] header.hero::before {
+      filter: brightness(0.35) blur(0.5px);
+    }
+    body[data-theme="dark"] #page-alert {
+      background: #23272b;
+      color: #ffe58f;
+      border-color: #b26a00;
+    }
+    body[data-theme="dark"] .cta-btn, body[data-theme="dark"] .modal-content, body[data-theme="dark"] .container, body[data-theme="dark"] .drone-status-item, body[data-theme="dark"] .feature, body[data-theme="dark"] .field-card, body[data-theme="dark"] .drone-image-card, body[data-theme="dark"] .about {
+      background: #23272b !important;
+      color: #f5f7fa !important;
+      box-shadow: 0 2px 10px rgba(49,107,131,0.18);
+    }
+    body[data-theme="dark"] th {
+      background: #316B83;
+      color: #fff;
+    }
+    body[data-theme="dark"] .feature-title, body[data-theme="dark"] .field-card-title, body[data-theme="dark"] .step-title, body[data-theme="dark"] .about h2 {
+      color: #68B984 !important;
+    }
+    body[data-theme="dark"] .modal-field input, body[data-theme="dark"] .modal-field textarea {
+      background: #181c1f;
+      color: #f5f7fa;
+      border: 1px solid #316B83;
+    }
+    body[data-theme="dark"] .modal-field input:focus, body[data-theme="dark"] .modal-field textarea:focus {
+      border: 1.5px solid #68B984;
+    }
+    body[data-theme="dark"] .feedback-card {
+      background: #23272b;
+      color: #f5f7fa;
+    }
+    body[data-theme="dark"] .feedback-stars {
+      color: #ffe58f;
+    }
+    body[data-theme="dark"] .footer-content, body[data-theme="dark"] footer {
+      background: #181c1f !important;
+      color: #f5f7fa !important;
+    }
+    body[data-theme="dark"] .footer-social a {
+      color: #ffe58f;
+    }
+    body[data-theme="dark"] .footer-newsletter input[type="email"] {
+      background: #23272b;
+      color: #f5f7fa;
+      border: 1px solid #316B83;
+    }
+    body[data-theme="dark"] .footer-newsletter button {
+      background: #68B984;
+      color: #23272b;
+    }
+    body[data-theme="dark"] .footer-newsletter button:hover {
+      background: #23272b;
+      color: #68B984;
+    }
+    #notification-bell[aria-expanded="true"] {
+      background: var(--blue);
+      color: #fff;
+    }
+    #notification-dropdown {
+      animation: fadeInHero 0.3s;
+      max-height: 60vh;
+      overflow-y: auto;
+    }
+    .notification-item {
+      background: #fffbe6;
+      color: #b26a00;
+      border: 1.5px solid #ffe58f;
+      border-radius: 1.2rem;
+      box-shadow: 0 2px 10px rgba(255,215,0,0.08);
+      padding: 0.8rem 1.2rem 0.8rem 1rem;
+      margin-bottom: 0.7rem;
+      font-size: 1.02rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      transition: background 0.2s;
+    }
+    .notification-item:last-child {
+      margin-bottom: 0;
+    }
+    .notification-item button {
+      background: none;
+      border: none;
+      color: #b26a00;
+      font-size: 1.2rem;
+      cursor: pointer;
+      margin-left: 1.2rem;
+      padding: 0;
+      border-radius: 50%;
+      transition: background 0.2s;
+    }
+    .notification-item button:hover {
+      background: #ffe58f;
+    }
+    body[data-theme="dark"] #notification-dropdown, body[data-theme="dark"] .notification-item {
+      background: #23272b !important;
+      color: #ffe58f !important;
+      border-color: #b26a00 !important;
+    }
+    body[data-theme="dark"] .notification-item button {
+      color: #ffe58f;
+    }
+    /* Remove background/box from hero .container */
+    .hero .container, .hero-content {
+      background: none !important;
+      box-shadow: none !important;
+      border: none !important;
+      padding: 0 !important;
+    }
+    /* Ensure hero .container is always transparent, even in dark mode */
+    body[data-theme="dark"] .hero .container,
+    body[data-theme="dark"] .hero-content {
+      background: none !important;
+      box-shadow: none !important;
+      border: none !important;
+      padding: 0 !important;
+    }
+    /* Dark mode: ensure problem/solution/how-it-works sections use dark backgrounds */
+    body[data-theme="dark"] .problem-solution {
+      background: var(--gray) !important;
+    }
+    body[data-theme="dark"] .problem,
+    body[data-theme="dark"] .solution,
+    body[data-theme="dark"] .step {
+      background: #23272b !important;
+      color: #f5f7fa !important;
+      box-shadow: 0 2px 10px rgba(49,107,131,0.18);
+    }
+  </style>
+  <script>
+    // Animate CTA button on load
+    window.addEventListener('DOMContentLoaded', () => {
+      const btn = document.querySelector('.cta-btn');
+      if (btn) {
+        btn.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+          btn.style.transition = 'transform 0.5s cubic-bezier(.4,0,.2,1)';
+          btn.style.transform = 'scale(1)';
+        }, 350);
+      }
+
+      // Fetch user location by IP and update drone status
+      const locationField = document.getElementById('drone-location');
+      if (locationField) {
+        fetch('https://ipinfo.io/json?token=demo') // Replace 'demo' with a real token for production
+          .then(response => response.json())
+          .then(data => {
+            if (data.city && data.region && data.country) {
+              locationField.textContent = `${data.city}, ${data.region}, ${data.country}`;
+            } else if (data.city && data.country) {
+              locationField.textContent = `${data.city}, ${data.country}`;
+            } else if (data.country) {
+              locationField.textContent = data.country;
+            }
+          })
+          .catch(() => {
+            // Do nothing, keep as is
+          });
+      }
+
+      // --- Feedback Modal Logic ---
+      // Modal open/close
+      const openModalBtn = document.getElementById('open-demo-modal');
+      const closeModalBtn = document.getElementById('close-demo-modal');
+      const modal = document.getElementById('demo-modal');
+      const form = document.getElementById('demo-form');
+      const msg = document.getElementById('demo-form-msg');
+      const starRating = document.getElementById('star-rating');
+      const ratingInput = document.getElementById('demo-rating');
+      let selectedRating = 0;
+
+      // Star rating UI logic
+      if (starRating) {
+        starRating.addEventListener('mouseover', e => {
+          if (e.target.dataset.star) {
+            const val = parseInt(e.target.dataset.star);
+            Array.from(starRating.children).forEach((s, i) => {
+              s.textContent = i < val ? '★' : '☆';
+            });
+          }
+        });
+        starRating.addEventListener('mouseout', () => {
+          Array.from(starRating.children).forEach((s, i) => {
+            s.textContent = i < selectedRating ? '★' : '☆';
+          });
+        });
+        starRating.addEventListener('click', e => {
+          if (e.target.dataset.star) {
+            selectedRating = parseInt(e.target.dataset.star);
+            ratingInput.value = selectedRating;
+            Array.from(starRating.children).forEach((s, i) => {
+              s.textContent = i < selectedRating ? '★' : '☆';
+              s.className = i < selectedRating ? 'star-selected' : '';
+            });
+          }
+        });
+      }
+
+      // Modal open/close logic
+      if (openModalBtn && closeModalBtn && modal) {
+        openModalBtn.onclick = () => { modal.style.display = 'flex'; document.body.style.overflow = 'hidden'; };
+        closeModalBtn.onclick = () => { modal.style.display = 'none'; document.body.style.overflow = ''; msg.textContent = ''; };
+        window.onclick = (e) => { if (e.target === modal) { modal.style.display = 'none'; document.body.style.overflow = ''; msg.textContent = ''; } };
+      }
+
+      // Feedback form submit logic
+      if (form) {
+        form.onsubmit = async (e) => {
+          e.preventDefault();
+          msg.textContent = '';
+          const name = document.getElementById('demo-name').value.trim();
+          const email = document.getElementById('demo-email').value.trim();
+          const message = document.getElementById('demo-message').value.trim();
+          const rating = parseInt(ratingInput.value);
+          if (!name || !message || !rating) {
+            msg.style.color = 'red';
+            msg.textContent = 'Please fill all required fields and select a rating.';
+            return;
+          }
+          const payload = { name, email, message, rating };
+          try {
+            // POST feedback to backend
+            const res = await fetch('http://localhost:3001/api/feedback', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload)
+            });
+            const data = await res.json();
+            if (data.success) {
+              msg.style.color = 'var(--green)';
+              msg.textContent = 'Thank you for your feedback!';
+              form.reset();
+              selectedRating = 0;
+              Array.from(starRating.children).forEach((s, i) => { s.textContent = '☆'; s.className = ''; });
+              setTimeout(() => { modal.style.display = 'none'; document.body.style.overflow = ''; msg.textContent = ''; }, 1800);
+            } else {
+              msg.style.color = 'red';
+              msg.textContent = data.error || 'Submission failed.';
+            }
+          } catch (err) {
+            msg.style.color = 'red';
+            msg.textContent = 'Network error. Please try again.';
+          }
+        };
+      }
+
+      // --- Get Feedbacks Logic ---
+      // Fetch and display all feedbacks
+      const getFeedbacksBtn = document.getElementById('get-feedbacks-btn');
+      const feedbacksList = document.getElementById('feedbacks-list');
+      if (getFeedbacksBtn && feedbacksList) {
+        getFeedbacksBtn.onclick = async () => {
+          feedbacksList.innerHTML = '<div style="color:var(--blue);margin:1rem 0;">Loading...</div>';
+          try {
+            // GET all feedbacks from backend
+            const res = await fetch('http://software.agridrone.ai:3001/api/get-feedbacks');
+            const feedbacks = await res.json();
+            if (feedbacks.length === 0) {
+              feedbacksList.innerHTML = '<div style="color:#888;">No feedbacks yet.</div>';
+              return;
+            }
+            feedbacksList.innerHTML = feedbacks.map(f => `
+              <div class="feedback-card">
+                <div class="feedback-stars">${'★'.repeat(f.rating)}${'☆'.repeat(5-f.rating)}</div>
+                <span class="feedback-name">${f.name}</span>
+                <span class="feedback-date">${new Date(f.timestamp).toLocaleString()}</span>
+                <div class="feedback-message">${f.message.replace(/</g,'&lt;')}</div>
+                ${f.email ? `<div style="font-size:0.95rem;color:#888;">${f.email}</div>` : ''}
+              </div>
+            `).join('');
+          } catch (err) {
+            feedbacksList.innerHTML = '<div style="color:red;">Failed to load feedbacks.</div>';
+          }
+        };
+      }
+
+      // Diagnosis Table Logic
+      function renderDiagnosisTable(data) {
+        const tbody = document.getElementById('diagnosis-table-body');
+        if (!tbody) return;
+        if (!data || !data.length) {
+          tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;color:#888;">No diagnosis records found.</td></tr>';
+          return;
+        }
+        tbody.innerHTML = data.map(d =>
+          `<tr>
+            <td style='padding:0.5em 1em;border-bottom:1px solid #eee;'>${d.timestamp.replace('T',' ').replace('Z','')}</td>
+            <td style='padding:0.5em 1em;border-bottom:1px solid #eee;'>${d.diagnosis}</td>
+            <td style='padding:0.5em 1em;border-bottom:1px solid #eee;'>${d.advice}</td>
+            <td style='padding:0.5em 1em;border-bottom:1px solid #eee;'>${d.confidence}%</td>
+          </tr>`
+        ).join('');
+      }
+      function fetchAndRenderDiagnosisTable() {
+        fetch('http://software.agridrone.ai:3001/api/get-diagnoses')
+          .then(r => r.json())
+          .then(data => renderDiagnosisTable(data))
+          .catch(() => renderDiagnosisTable([]));
+      }
+      fetchAndRenderDiagnosisTable();
+      // Re-render after new diagnosis
+      const diagnoseBtn = document.getElementById('diagnose-btn');
+      if (diagnoseBtn) {
+        diagnoseBtn.addEventListener('click', () => {
+          setTimeout(fetchAndRenderDiagnosisTable, 1200);
+        });
+      }
+      // Export to XLSX logic
+      const exportXlsxBtn = document.getElementById('export-diagnosis-xlsx');
+      if (exportXlsxBtn) {
+        exportXlsxBtn.onclick = function() {
+          fetch('http://software.agridrone.ai:3001/api/get-diagnoses')
+            .then(r => r.json())
+            .then(data => {
+              if (!data || !data.length) return;
+              let xls = '<table><tr><th>Timestamp</th><th>Diagnosis</th><th>Advice</th><th>Confidence</th></tr>';
+              data.forEach(d => {
+                xls += `<tr><td>${d.timestamp.replace('T',' ').replace('Z','')}</td><td>${d.diagnosis}</td><td>${d.advice}</td><td>${d.confidence}%</td></tr>`;
+              });
+              xls += '</table>';
+              const blob = new Blob([xls], { type: 'application/vnd.ms-excel' });
+              const url = URL.createObjectURL(blob);
+              const a = document.createElement('a');
+              a.href = url;
+              a.download = 'diagnoses.xls';
+              document.body.appendChild(a);
+              a.click();
+              setTimeout(() => {
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+              }, 100);
+            });
+        };
+      }
+
+      // --- Dismissible Alert Logic ---
+      const alertMessages = [
+        '⚠️ Pest detected in Field 2. Immediate action recommended!',
+        '💧 Water stress detected in North Zone. Check irrigation.',
+        '🌱 Nutrient deficiency in South Field. Apply NPK fertilizer.',
+        '✅ All systems normal. No issues detected.',
+        '🚁 Drone battery low. Please recharge soon.'
+      ];
+      const alertBox = document.getElementById('page-alert');
+      if (alertBox) {
+        const msg = alertMessages[Math.floor(Math.random() * alertMessages.length)];
+        alertBox.innerHTML = `<span>${msg}</span><button title='Dismiss' onclick='this.parentElement.style.display="none";'>&times;</button>`;
+        alertBox.style.display = 'flex';
+      }
+
+      // --- Drone Distance Logic ---
+      const droneDistanceElem = document.getElementById('drone-distance');
+      if (droneDistanceElem) {
+        // Randomize distance between 0.5 and 20 km on each refresh
+        const dist = (Math.random() * 19.5 + 0.5).toFixed(1);
+        droneDistanceElem.textContent = `Drone is ${dist} km away from you.`;
+      }
+
+      // --- Notification System ---
+      (function() {
+        // Alert sources
+        const alertMessages = [
+          { msg: '⚠️ Pest detected in Field 2. Immediate action recommended!', type: 'crop' },
+          { msg: '💧 Water stress detected in North Zone. Check irrigation.', type: 'crop' },
+          { msg: '🌱 Nutrient deficiency in South Field. Apply NPK fertilizer.', type: 'crop' },
+          { msg: '✅ All systems normal. No issues detected.', type: 'system' },
+          { msg: '🚁 Drone battery low. Please recharge soon.', type: 'system' }
+        ];
+        // Health status
+        const healthStates = [
+          { label: 'Optimal', icon: '🟢', color: 'var(--green)' },
+          { label: 'Performance', icon: '🟡', color: '#ffe58f' },
+          { label: 'Drained', icon: '🔴', color: '#e74c3c' },
+          { label: 'Requires attention', icon: '⚠️', color: '#ff9800' }
+        ];
+        const idx = Math.floor(Math.random() * healthStates.length);
+        const state = healthStates[idx];
+        const healthStatus = document.getElementById('health-status');
+        const healthIcon = document.getElementById('health-icon');
+        if (healthStatus && healthIcon) {
+          healthStatus.textContent = state.label;
+          healthStatus.style.color = state.color;
+          healthIcon.textContent = state.icon;
+        }
+        // Battery status
+        const batteryElem = document.querySelector('.drone-status-item:nth-child(2) .drone-status-value');
+        let battery = Math.floor(Math.random() * 81) + 10; // 10% to 90%
+        if (batteryElem) {
+          batteryElem.textContent = battery + '%';
+          batteryElem.style.color = battery < 20 ? '#e74c3c' : 'var(--blue)';
+        }
+        // Notification list
+        let notifications = [];
+        // Add health alert if needed
+        if (state.label === 'Requires attention') {
+          notifications.push({ msg: '⚠️ Drone health requires attention! Please check the drone immediately.', type: 'health' });
+        }
+        // Add battery alert if needed
+        if (battery < 20) {
+          notifications.push({ msg: '🚁 Drone battery low. Please recharge soon.', type: 'system' });
+        }
+        // Add a random crop/system alert for demo
+        const randomAlert = alertMessages[Math.floor(Math.random() * alertMessages.length)];
+        notifications.push(randomAlert);
+        // Notification UI
+        const bell = document.getElementById('notification-bell');
+        const dropdown = document.getElementById('notification-dropdown');
+        const list = document.getElementById('notification-list');
+        const count = document.getElementById('notification-count');
+        let open = false;
+        function renderNotifications() {
+          list.innerHTML = '';
+          notifications.forEach((n, i) => {
+            const item = document.createElement('div');
+            item.className = 'notification-item';
+            item.innerHTML = `<span>${n.msg}</span><button title='Dismiss'>&times;</button>`;
+            item.querySelector('button').onclick = () => {
+              notifications.splice(i, 1);
+              renderNotifications();
+              updateCount();
+            };
+            list.appendChild(item);
+          });
+          if (notifications.length === 0) {
+            list.innerHTML = '<div style="color:#888;text-align:center;padding:1.2em 0;">No alerts</div>';
+          }
+        }
+        function updateCount() {
+          if (notifications.length > 0) {
+            count.textContent = notifications.length;
+            count.style.display = 'inline-block';
+          } else {
+            count.style.display = 'none';
+          }
+        }
+        bell.onclick = () => {
+          open = !open;
+          dropdown.style.display = open ? 'block' : 'none';
+          bell.setAttribute('aria-expanded', open ? 'true' : 'false');
+        };
+        document.addEventListener('click', (e) => {
+          if (!bell.contains(e.target) && !dropdown.contains(e.target)) {
+            open = false;
+            dropdown.style.display = 'none';
+            bell.setAttribute('aria-expanded', 'false');
+          }
+        });
+        renderNotifications();
+        updateCount();
+      })();
+
+      // --- Dark/Light Mode Toggle ---
+      (function() {
+        const btn = document.getElementById('theme-toggle');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const saved = localStorage.getItem('theme');
+        function setTheme(theme) {
+          document.body.setAttribute('data-theme', theme);
+          btn.textContent = theme === 'dark' ? '☀️ Light' : '🌙 Dark';
+        }
+        setTheme(saved || (prefersDark ? 'dark' : 'light'));
+        btn.onclick = () => {
+          const current = document.body.getAttribute('data-theme');
+          const next = current === 'dark' ? 'light' : 'dark';
+          setTheme(next);
+          localStorage.setItem('theme', next);
+        };
+      })();
+
+      // --- Diagnose Crop Section Logic ---
+      const diagnoseInput = document.getElementById('diagnose-image-input');
+      const diagnosePreview = document.getElementById('diagnose-image-preview');
+      const diagnoseResult = document.getElementById('diagnose-result');
+      let diagnoseImageBase64 = '';
+      if (diagnoseInput) {
+        diagnoseInput.addEventListener('change', e => {
+          const file = e.target.files[0];
+          diagnoseResult.textContent = '';
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = function(evt) {
+              diagnoseImageBase64 = evt.target.result.split(',')[1];
+              diagnosePreview.innerHTML = `<img src="${evt.target.result}" alt="Preview" style="max-width:100%;max-height:180px;border-radius:0.7rem;margin-bottom:0.5rem;" />`;
+            };
+            reader.readAsDataURL(file);
+          } else {
+            diagnoseImageBase64 = '';
+            diagnosePreview.innerHTML = '';
+          }
+        });
+        diagnoseBtn.addEventListener('click', () => {
+          if (!diagnoseImageBase64) {
+            diagnoseResult.textContent = 'Please select an image to diagnose.';
+            return;
+          }
+          diagnoseResult.textContent = 'Diagnosing...';
+          fetch('http://software.agridrone.ai:3001/api/diagnose-crop', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ image: diagnoseImageBase64 })
+          })
+          .then(r => r.json())
+          .then(data => {
+            if (data.error) {
+              diagnoseResult.textContent = 'Error: ' + data.error;
+            } else {
+              diagnoseResult.innerHTML = `<b>Diagnosis:</b> ${data.diagnosis}<br/><b>Advice:</b> ${data.advice}<br/><b>Confidence:</b> ${data.confidence}%`;
+            }
+          })
+          .catch(() => {
+            diagnoseResult.textContent = 'Error: Could not connect to server.';
+          });
+        });
+      }
+    });
+    // --- Multi-Drone Battery + Notification Logic ---
+    document.addEventListener('DOMContentLoaded', function() {
+      // Battery logic for 3 drones
+      let lowBatteryDrones = [];
+      let batteryValues = [];
+      for (let i=1; i<=3; ++i) {
+        const battery = Math.floor(Math.random() * 91) + 10; // 10-100
+        batteryValues[i] = battery;
+        const el = document.getElementById(`drone${i}-battery`);
+        if (el) {
+          el.textContent = battery + '%';
+        } else {
+          console.warn('Missing battery element for drone', i);
+        }
+        if (battery < 20) lowBatteryDrones.push(i);
+      }
+      // Notification system integration
+      window._customNotifications = window._customNotifications || [];
+      lowBatteryDrones.forEach(i => {
+        window._customNotifications.push({
+          msg: `🚁 Drone ${i} battery low (<20%)`,
+          type: 'system'
+        });
+      });
+      // Patch notification system to include custom notifications
+      if (window.renderNotificationsPatched !== true) {
+        const origRender = window.renderNotifications;
+        window.renderNotifications = function() {
+          let notifications = [];
+          if (typeof origRender === 'function' && origRender._notifications) {
+            notifications = origRender._notifications;
+          }
+          notifications = (window._customNotifications || []).concat(notifications || []);
+          // Render as before
+          const bell = document.getElementById('notification-bell');
+          const dropdown = document.getElementById('notification-dropdown');
+          const list = document.getElementById('notification-list');
+          const count = document.getElementById('notification-count');
+          let open = false;
+          list.innerHTML = '';
+          notifications.forEach((n, i) => {
+            const item = document.createElement('div');
+            item.className = 'notification-item';
+            item.innerHTML = `<span>${n.msg}</span><button title='Dismiss'>&times;</button>`;
+            item.querySelector('button').onclick = () => {
+              notifications.splice(i, 1);
+              window._customNotifications = notifications;
+              window.renderNotifications();
+              if (typeof origRender === 'function') origRender();
+            };
+            list.appendChild(item);
+          });
+          if (notifications.length === 0) {
+            list.innerHTML = '<div style="color:#888;text-align:center;padding:1.2em 0;">No alerts</div>';
+          }
+          if (count) {
+            if (notifications.length > 0) {
+              count.textContent = notifications.length;
+              count.style.display = 'inline-block';
+            } else {
+              count.style.display = 'none';
+            }
+          }
+        };
+        window.renderNotificationsPatched = true;
+      }
+      if (typeof window.renderNotifications === 'function') {
+        window.renderNotifications();
+      }
+    });
+  </script>
+</head>
+<body>
+  <!-- Dark/Light mode toggle -->
+  <button id="theme-toggle" aria-label="Toggle dark mode" style="position:fixed;top:1.2rem;left:1.2rem;z-index:200;background:var(--gray);color:var(--blue);border:none;border-radius:2rem;padding:0.6rem 1.2rem;font-size:1.1rem;box-shadow:0 2px 10px rgba(49,107,131,0.08);cursor:pointer;transition:background 0.2s, color 0.2s;">
+    🌙 Dark
+  </button>
+  <!-- Notification bell and dropdown -->
+  <div id="notification-container" style="position:fixed;top:1.2rem;right:1.2rem;z-index:200;">
+    <button id="notification-bell" aria-label="Notifications" style="background:var(--gray);color:var(--blue);border:none;border-radius:50%;padding:0.6rem 0.7rem;font-size:1.4rem;box-shadow:0 2px 10px rgba(49,107,131,0.08);cursor:pointer;transition:background 0.2s, color 0.2s;position:relative;">
+      <span id="notification-bell-icon">🔔</span>
+      <span id="notification-count" style="position:absolute;top:0.2em;right:0.2em;background:#e74c3c;color:#fff;font-size:0.8em;border-radius:50%;padding:0.1em 0.5em;display:none;">0</span>
+    </button>
+    <div id="notification-dropdown" style="display:none;position:absolute;top:2.7rem;right:0;min-width:320px;max-width:95vw;background:var(--gray);color:var(--dark-text);border-radius:1.2rem;box-shadow:0 8px 32px rgba(49,107,131,0.18);padding:0.7rem 0.5rem 0.7rem 0.5rem;z-index:300;">
+      <div id="notification-list"></div>
+    </div>
+  </div>
+  <!-- Hero section with tagline and CTA -->
+  <header class="hero">
+    <div class="container hero-content" style="background:none;box-shadow:none;border:none;padding:0;">
+      <h1>Smarter Farming Starts with Agridrone</h1>
+      <p>AI-powered drones that monitor your crops from above</p>
+      <!-- Feedback modal trigger button -->
+      <button class="cta-btn" id="open-demo-modal">Feedback</button>
+      <a href="budget.html" class="cta-btn" id="budget-link" title="Go to Budget" style="margin-left:0.7rem;display:inline-flex;align-items:center;gap:0.4rem;">
+        <span style="font-size:1.2em;">💸</span> Drone Budget
+      </a>
+    </div>
+  </header>
+
+  <!-- Drone Status Section: shows live drone info -->
+  <section class="drone-status">
+    <div class="container">
+      <h2 style="text-align:center; color:var(--blue); font-weight:700; margin-bottom:2rem;">Drone Status</h2>
+      <div class="drone-status-grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem;">
+        <div class="drone-status-item" id="drone1-status">
+          <div style="display:flex;align-items:center;gap:0.7em;margin-bottom:0.5em;">
+            <span class="drone-status-icon" title="Crop Health" style="font-size:2rem;">🌱</span>
+            <span style="font-weight:700;color:var(--blue);font-size:1.1rem;">Drone 1</span>
+          </div>
+          <div class="drone-status-label">Purpose: Crop Health</div>
+          <div class="drone-status-value" id="drone1-battery">Battery: --</div>
+        </div>
+        <div class="drone-status-item" id="drone2-status">
+          <div style="display:flex;align-items:center;gap:0.7em;margin-bottom:0.5em;">
+            <span class="drone-status-icon" title="Pest Control" style="font-size:2rem;">🐞</span>
+            <span style="font-weight:700;color:var(--green);font-size:1.1rem;">Drone 2</span>
+          </div>
+          <div class="drone-status-label">Purpose: Pest Control</div>
+          <div class="drone-status-value" id="drone2-battery">Battery: --</div>
+        </div>
+        <div class="drone-status-item" id="drone3-status">
+          <div style="display:flex;align-items:center;gap:0.7em;margin-bottom:0.5em;">
+            <span class="drone-status-icon" title="Irrigation" style="font-size:2rem;">💧</span>
+            <span style="font-weight:700;color:#0099ff;font-size:1.1rem;">Drone 3</span>
+          </div>
+          <div class="drone-status-label">Purpose: Irrigation</div>
+          <div class="drone-status-value" id="drone3-battery">Battery: --</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Field Overview Section: key agri features -->
+  <section class="field-overview">
+    <div class="container">
+      <h2 style="text-align:center; color:var(--blue); font-weight:700; margin-bottom:2rem;">Field Overview</h2>
+      <div class="field-overview-grid">
+        <!-- Crop Health, Irrigation, Pest, Images, Timeline -->
+        <div class="field-card">
+          <div class="field-card-icon">🌱</div>
+          <div class="field-card-title">Crop Health Report</div>
+          <div class="field-card-desc">NDVI, stress, and growth analysis for your crops.</div>
+        </div>
+        <div class="field-card">
+          <div class="field-card-icon">💧</div>
+          <div class="field-card-title">Irrigation Plan</div>
+          <div class="field-card-desc">Smart watering schedules based on field data.</div>
+        </div>
+        <div class="field-card">
+          <div class="field-card-icon">🐞</div>
+          <div class="field-card-title">Pest Control Suggestions</div>
+          <div class="field-card-desc">Targeted actions for pest and disease management.</div>
+        </div>
+        <div class="field-card">
+          <div class="field-card-icon">🖼️</div>
+          <div class="field-card-title">Drone Scan Images</div>
+          <div class="field-card-desc">Latest aerial images from your field scans.</div>
+        </div>
+        <div class="field-card">
+          <div class="field-card-icon">⏳</div>
+          <div class="field-card-title">Action Timeline</div>
+          <div class="field-card-desc">History of actions and recommendations for your field.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Drone Scan Images Section: Indian agricultural lands, issues, suggestions -->
+  <section class="drone-images-section">
+    <div class="container">
+      <h2 style="text-align:center; color:var(--blue); font-weight:700;">Drone Scan Images</h2>
+      <div class="drone-images-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-top:2rem;">
+        <div class="drone-image-card">
+          <img src="https://images.unsplash.com/photo-1702221972159-026e426e4b9d?q=80&w=2142&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Indian Farm Pest Issue" style="width:100%;border-radius:1.2rem 1.2rem 0 0;object-fit:cover;max-height:180px;" />
+          <div style="padding:1rem;">
+            <div style="font-weight:600;color:var(--blue);margin-bottom:0.3rem;">Pest Detected</div>
+            <div style="color:#444;">Suggestion: Apply neem-based pesticide in affected area.</div>
+          </div>
+        </div>
+        <div class="drone-image-card">
+          <img src="https://images.unsplash.com/photo-1649058840558-2f45b29330a3?q=80&w=2148&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Indian Farm Water Stress" style="width:100%;border-radius:1.2rem 1.2rem 0 0;object-fit:cover;max-height:180px;" />
+          <div style="padding:1rem;">
+            <div style="font-weight:600;color:var(--blue);margin-bottom:0.3rem;">Water Stress</div>
+            <div style="color:#444;">Suggestion: Increase irrigation in the east field zone.</div>
+          </div>
+        </div>
+        <div class="drone-image-card">
+          <img src="https://images.unsplash.com/photo-1492496913980-501348b61469?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Indian Farm Nutrient Deficiency" style="width:100%;border-radius:1.2rem 1.2rem 0 0;object-fit:cover;max-height:180px;" />
+          <div style="padding:1rem;">
+            <div style="font-weight:600;color:var(--blue);margin-bottom:0.3rem;">Nutrient Deficiency</div>
+            <div style="color:#444;">Suggestion: Apply urea or NPK fertilizer to affected crops.</div>
+          </div>
+        </div>
+      </div>
+      <!-- Diagnose Crop Section -->
+      <div id="diagnose-crop-section" style="margin:2.5rem auto 0 auto;max-width:420px;background:var(--gray);border-radius:1.2rem;box-shadow:0 2px 10px rgba(49,107,131,0.08);padding:2rem 1.5rem;text-align:center;">
+        <h3 style="color:var(--blue);font-weight:700;margin-bottom:1.2rem;">AI Crop Issue Diagnosis</h3>
+        <input type="file" id="diagnose-image-input" accept="image/*" style="margin-bottom:1rem;" />
+        <div id="diagnose-image-preview" style="margin-bottom:1rem;"></div>
+        <button id="diagnose-btn" class="cta-btn" style="margin-bottom:1rem;">Diagnose Image</button>
+        <div id="diagnose-result" style="margin-top:1rem;font-size:1.08rem;"></div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section>
+      <div class="container problem-solution">
+        <div class="problem">
+          <h3>Problem</h3>
+          <p>Traditional crop monitoring is slow and reactive.</p>
+        </div>
+        <div class="solution">
+          <h3>Solution</h3>
+          <p>Agridrone uses drone-based scanning + AI to identify issues early and improve yield.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="how-it-works">
+      <div class="container">
+        <h2>How it Works</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="step-icon">🚁</div>
+            <div class="step-title">Drone scans field</div>
+            <div class="step-desc">High-res cameras & sensors capture crop data</div>
+          </div>
+          <div class="step">
+            <div class="step-icon">🤖</div>
+            <div class="step-title">AI analyzes images</div>
+            <div class="step-desc">Machine learning detects stress, pests, and more</div>
+          </div>
+          <div class="step">
+            <div class="step-icon">📱</div>
+            <div class="step-title">Farmer gets actionable report</div>
+            <div class="step-desc">Insights delivered to phone or dashboard in real time</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 style="text-align:center; color:var(--blue); font-weight:700;">Features</h2>
+        <div class="features-grid">
+          <div class="feature">
+            <div class="feature-icon">🗺️</div>
+            <div>
+              <div class="feature-title">NDVI-based crop health maps</div>
+              <div>Visualize plant health and spot issues early</div>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">🐛</div>
+            <div>
+              <div class="feature-title">Pest & disease detection</div>
+              <div>AI flags pest damage and disease symptoms</div>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">🔔</div>
+            <div>
+              <div class="feature-title">Real-time alerts</div>
+              <div>Get instant notifications to your phone or dashboard</div>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">📊</div>
+            <div>
+              <div class="feature-title">Field-level insights & reports</div>
+              <div>Detailed analytics for every field and crop</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about">
+      <div class="container">
+        <h2>About Agridrone</h2>
+        <p>Our mission is to democratize precision farming for every grower, big or small. We believe technology should empower farmers to make smarter, faster decisions for their land.</p>
+        <p class="vision">Vision: Healthy harvests through AI everywhere.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Feedback Modal: user feedback form with stars -->
+  <div id="demo-modal" class="modal-overlay" style="display:none;">
+    <div class="modal-content">
+      <button class="modal-close" id="close-demo-modal" title="Close">&times;</button>
+      <h2 style="color:var(--blue);margin-bottom:1.2rem;">Feedback</h2>
+      <form id="demo-form">
+        <!-- Name, Email, Message, Star Rating -->
+        <div class="modal-field">
+          <label for="demo-name">Name</label>
+          <input type="text" id="demo-name" name="name" required />
+        </div>
+        <div class="modal-field">
+          <label for="demo-email">Email (optional)</label>
+          <input type="email" id="demo-email" name="email" />
+        </div>
+        <div class="modal-field">
+          <label for="demo-message">Feedback</label>
+          <textarea id="demo-message" name="message" rows="3" required style="resize:vertical;min-height:60px;border-radius:1rem;padding:0.7rem 1rem;"></textarea>
+        </div>
+        <div class="modal-field">
+          <label>Rating</label>
+          <div id="star-rating" style="font-size:2rem;cursor:pointer;user-select:none;">
+            <span data-star="1">☆</span><span data-star="2">☆</span><span data-star="3">☆</span><span data-star="4">☆</span><span data-star="5">☆</span>
+          </div>
+        </div>
+        <input type="hidden" id="demo-rating" name="rating" required />
+        <button type="submit" class="cta-btn" style="width:100%;margin-top:1.2rem;">Submit</button>
+        <div id="demo-form-msg" style="margin-top:1rem;font-size:1rem;"></div>
+      </form>
+    </div>
+  </div>
+  <!-- Button to fetch and display all feedbacks -->
+  <div style="text-align:center;margin:2rem 0;">
+    <button class="cta-btn" id="get-feedbacks-btn" style="margin-left:0.7rem;">Get Feedbacks</button>
+    <a href="results.html" class="cta-btn" id="show-diagnosis-table" style="margin-left:0.7rem;display:inline-flex;align-items:center;gap:0.4rem;" title="Show All Diagnoses">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24"><path fill="#316B83" d="M3 6a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1Zm0 6a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1Zm1 5a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2H4Z"/></svg>
+      Show All Diagnoses
+    </a>
+    <a href="dashboards.html" class="cta-btn" id="show-dashboards" style="margin-left:0.7rem;display:inline-flex;align-items:center;gap:0.4rem;" title="Dashboards">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24"><path fill="#316B83" d="M3 17v-7a2 2 0 0 1 2-2h2V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v3h2a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Zm2-7v7h14v-7H5Zm4-5v3h6V5H9Z"/></svg>
+      Dashboards
+    </a>
+    <div id="feedbacks-list" style="max-width:600px;margin:0 auto;"></div>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-social">
+        <a href="#" aria-label="Twitter" title="Twitter"><span style="font-size:1.3em;">🐦</span></a>
+        <a href="#" aria-label="LinkedIn" title="LinkedIn"><span style="font-size:1.3em;">💼</span></a>
+        <a href="#" aria-label="Instagram" title="Instagram"><span style="font-size:1.3em;">📸</span></a>
+      </div>
+      <div class="footer-contact">
+        Contact: <a href="mailto:hello@agridrone.ai" style="color:#fff;text-decoration:underline;">hello@agridrone.ai</a>
+      </div>
+      <form class="footer-newsletter" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+        <input type="email" placeholder="Your email" required />
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+    <div style="margin-top:1.2rem; font-size:0.95rem; opacity:0.7;">&copy; 2024 Agridrone. All rights reserved.</div>
+  </footer>
+</body>
+</html> 

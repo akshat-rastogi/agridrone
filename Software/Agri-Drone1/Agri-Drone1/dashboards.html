@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agridrone – Dashboards</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    :root {
+      --green: #68B984;
+      --blue: #316B83;
+      --light-bg: #fff;
+      --dark-text: #222;
+      --gray: #f5f7fa;
+      --radius: 1.2rem;
+      --shadow: 0 4px 24px rgba(49, 107, 131, 0.08);
+      --transition: 0.2s cubic-bezier(.4,0,.2,1);
+    }
+    html { box-sizing: border-box; font-size: 18px; }
+    *, *:before, *:after { box-sizing: inherit; }
+    body {
+      margin: 0;
+      font-family: 'Poppins', 'Inter', Arial, sans-serif;
+      background: var(--light-bg);
+      color: var(--dark-text);
+      min-height: 100vh;
+      transition: background 0.2s, color 0.2s;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: var(--blue);
+      margin-top: 2.5rem;
+      margin-bottom: 1.2rem;
+      text-align: center;
+    }
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+    .dashboard-card {
+      background: var(--gray);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      min-width: 0;
+    }
+    .dashboard-card h2 {
+      color: var(--blue);
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 1.1rem;
+      margin-top: 0;
+      text-align: left;
+    }
+    @media (max-width: 700px) {
+      .dashboard-grid { grid-template-columns: 1fr; }
+      .dashboard-card { padding: 1.1rem 0.5rem; }
+    }
+    /* Dark mode styles */
+    body[data-theme="dark"] {
+      --light-bg: #181c1f;
+      --dark-text: #f5f7fa;
+      --gray: #23272b;
+      --blue: #68B984;
+      --green: #316B83;
+      background: var(--light-bg);
+      color: var(--dark-text);
+    }
+    body[data-theme="dark"] .dashboard-card {
+      background: #23272b;
+      color: #f5f7fa;
+      box-shadow: 0 2px 10px rgba(49,107,131,0.18);
+    }
+    body[data-theme="dark"] .dashboard-card h2 {
+      color: #68B984;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4em;
+      color: var(--blue);
+      font-weight: 600;
+      text-decoration: none;
+      margin-bottom: 1.5rem;
+      margin-top: 1.2rem;
+      font-size: 1.05rem;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--green); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back-link" title="Back to Home">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M15.7 17.3a1 1 0 0 1-1.4 0l-5-5a1 1 0 0 1 0-1.4l5-5a1 1 0 1 1 1.4 1.4L11.42 12l4.3 4.3a1 1 0 0 1 0 1.4Z"/></svg>
+      Back to Home
+    </a>
+    <h1>Drone Dashboards</h1>
+    <div class="dashboard-grid">
+      <!-- Drone 1: Crop Health -->
+      <div class="dashboard-card" style="display:flex;flex-direction:column;gap:0.7rem;align-items:flex-start;">
+        <div style="display:flex;align-items:center;gap:0.8rem;">
+          <span style="font-size:2.2rem;">🌱</span>
+          <span style="font-weight:700;color:var(--blue);font-size:1.1rem;">Drone 1</span>
+        </div>
+        <div style="font-size:1.05rem;color:var(--blue);font-weight:600;">Purpose: Crop Health</div>
+        <div id="d1-battery" style="font-size:1.1rem;">Battery: --</div>
+        <div id="d1-cpu" style="font-size:1.1rem;">CPU: --</div>
+        <div id="d1-altitude" style="font-size:1.1rem;">Altitude: --</div>
+        <div id="d1-distance" style="font-size:1.1rem;">Distance: --</div>
+      </div>
+      <!-- Drone 2: Pest Control -->
+      <div class="dashboard-card" style="display:flex;flex-direction:column;gap:0.7rem;align-items:flex-start;">
+        <div style="display:flex;align-items:center;gap:0.8rem;">
+          <span style="font-size:2.2rem;">🐞</span>
+          <span style="font-weight:700;color:var(--green);font-size:1.1rem;">Drone 2</span>
+        </div>
+        <div style="font-size:1.05rem;color:var(--green);font-weight:600;">Purpose: Pest Control</div>
+        <div id="d2-battery" style="font-size:1.1rem;">Battery: --</div>
+        <div id="d2-cpu" style="font-size:1.1rem;">CPU: --</div>
+        <div id="d2-altitude" style="font-size:1.1rem;">Altitude: --</div>
+        <div id="d2-distance" style="font-size:1.1rem;">Distance: --</div>
+      </div>
+      <!-- Drone 3: Irrigation -->
+      <div class="dashboard-card" style="display:flex;flex-direction:column;gap:0.7rem;align-items:flex-start;">
+        <div style="display:flex;align-items:center;gap:0.8rem;">
+          <span style="font-size:2.2rem;">💧</span>
+          <span style="font-weight:700;color:#0099ff;font-size:1.1rem;">Drone 3</span>
+        </div>
+        <div style="font-size:1.05rem;color:#0099ff;font-weight:600;">Purpose: Irrigation</div>
+        <div id="d3-battery" style="font-size:1.1rem;">Battery: --</div>
+        <div id="d3-cpu" style="font-size:1.1rem;">CPU: --</div>
+        <div id="d3-altitude" style="font-size:1.1rem;">Altitude: --</div>
+        <div id="d3-distance" style="font-size:1.1rem;">Distance: --</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Theme persistence (reuse from main site)
+      (function() {
+        const theme = localStorage.getItem('theme');
+        if (theme) document.body.setAttribute('data-theme', theme);
+      })();
+      // Generate random values for each drone
+      function randInt(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
+      for (let i = 1; i <= 3; ++i) {
+        document.getElementById(`d${i}-battery`).textContent = 'Battery: ' + randInt(10, 100) + '%';
+        document.getElementById(`d${i}-cpu`).textContent = 'CPU: ' + randInt(20, 100) + '%';
+        document.getElementById(`d${i}-altitude`).textContent = 'Altitude: ' + randInt(0, 120) + ' m';
+        document.getElementById(`d${i}-distance`).textContent = 'Distance: ' + randInt(0, 500) + ' m';
+      }
+    });
+  </script>
+</body>
+</html> 
